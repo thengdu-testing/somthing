@@ -8,6 +8,19 @@
 
 </head>
 <body>
+<div class="cute-toolbar">
+  <button type="button" class="cute-btn" data-action="shuffle">Shuffle</button>
+  <button type="button" class="cute-btn" data-action="message">Cute Note</button>
+  <button type="button" class="cute-btn" data-action="heart-rain">Heart Rain</button>
+</div>
+
+<div class="status-pill">
+  <span class="status-dot"></span>
+  <span id="moodText">Love meter: 0</span>
+</div>
+
+<div id="cuteToast" class="cute-toast" aria-live="polite"></div>
+
 <!-- partial:index.partial.html -->
 <!-- A pen by Developer Rahul  -->
 <div class="paper heart">
@@ -22,7 +35,7 @@
 </div>
 
 <div class="paper image">
-  <p</p>
+  <p>My sunshine ☀️</p>
   <img src="images/2.jpg" />
 </div>
 
@@ -31,6 +44,51 @@
    <p> someone so cute ❤️ </p>
 
   <img src="images/3.jpg" />
+</div>
+
+<div class="paper image">
+  <p>Cute moment ✨</p>
+  <img src="images/663835532_26600859356213507_8698796688762840301_n.jpg" />
+</div>
+
+<div class="paper image">
+  <p>My favorite smile 💫</p>
+  <img src="images/664585787_1479707357226909_1906691122830428980_n.jpg" />
+</div>
+
+<div class="paper image">
+  <p>A sweet memory 💖</p>
+  <img src="images/664751073_1545705653645042_7316583021994911116_n.jpg" />
+</div>
+
+<div class="paper image">
+  <p>Best frame today 🌸</p>
+  <img src="images/665222683_2155632265259664_699956261836097665_n.jpg" />
+</div>
+
+<div class="paper image">
+  <p>Always adorable 🫶</p>
+  <img src="images/665647214_965066595935322_8223952792517368431_n.jpg" />
+</div>
+
+<div class="paper image">
+  <p>Cuteness captured 💘</p>
+  <img src="images/666109926_934215519218655_4025595168742919079_n.jpg" />
+</div>
+
+<div class="paper image">
+  <p>Another lovely snap 🐰</p>
+  <img src="images/668110996_1265480601866281_7984651281331054546_n.jpg" />
+</div>
+
+<div class="paper image">
+  <p>Too cute to handle 💞</p>
+  <img src="images/669361847_2019091105311591_6979237146762778459_n.jpg" />
+</div>
+
+<div class="paper image">
+  <p>Holy cuteeeaskjhfsdkfbsgb ✨</p>
+  <img src="images/670315158_950370107366060_616113743160085956_n.jpg" />
 </div>
 
 
@@ -53,6 +111,13 @@
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     const dragScript = document.createElement('script');
     dragScript.src = isTouchDevice ? './mobile.js' : './script.js';
+
+    dragScript.addEventListener('load', () => {
+      const appScript = document.createElement('script');
+      appScript.src = './app.js';
+      document.body.appendChild(appScript);
+    });
+
     document.body.appendChild(dragScript);
   </script>
 

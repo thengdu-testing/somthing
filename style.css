@@ -4,14 +4,104 @@
 
 
 body {
+  margin: 0;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
   background-size: 1000px;
   background-image: url("https://www.psdgraphics.com/wp-content/uploads/2022/01/white-math-paper-texture.jpg");
   background-position: center center;
+}
+
+.cute-toolbar {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 10px 20px rgba(28, 26, 54, 0.15);
+  backdrop-filter: blur(4px);
+}
+
+.cute-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: linear-gradient(135deg, #ff9fb3, #ff7994);
+  color: #fff;
+  font-family: 'Short Stack', cursive;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.25px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cute-btn:active {
+  transform: scale(0.96);
+}
+
+.cute-btn:hover {
+  box-shadow: 0 6px 14px rgba(255, 121, 148, 0.35);
+}
+
+.status-pill {
+  position: fixed;
+  top: 76px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 6px 12px;
+  font-family: 'Short Stack', cursive;
+  font-size: 12px;
+  color: #29436f;
+  box-shadow: 0 6px 12px rgba(38, 45, 74, 0.14);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff6f91;
+  animation: pulse 1.4s infinite;
+}
+
+.cute-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%) translateY(16px);
+  z-index: 10001;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 14px;
+  padding: 10px 14px;
+  color: #28406a;
+  font-family: 'Short Stack', cursive;
+  font-size: 14px;
+  box-shadow: 0 10px 18px rgba(42, 47, 87, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.cute-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .paper {
@@ -25,6 +115,7 @@ body {
   box-shadow: 1px 15px 20px 0px rgba(0,0,0,0.5);
   
   position: absolute;
+  touch-action: none;
 }
 
 .paper.heart {
@@ -41,7 +132,8 @@ body {
   overflow: hidden;
 }
 .paper.image p {
-  font-size: 30px;
+  margin: 4px 0;
+  font-size: clamp(20px, 4.5vw, 30px);
 }
 
 img {
@@ -81,4 +173,64 @@ p {
   user-select: none;
   
   // filter: drop-shadow(2px 1.5px 1px rgba(0,0,105,0.9));
+}
+
+.heart-drop {
+  position: fixed;
+  top: -24px;
+  z-index: 1100;
+  pointer-events: none;
+  animation: falling linear forwards;
+  filter: drop-shadow(0 4px 8px rgba(212, 42, 99, 0.3));
+}
+
+.tap-sticker {
+  position: fixed;
+  z-index: 1100;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: pop-sticker 0.7s ease forwards;
+}
+
+@keyframes falling {
+  to {
+    transform: translateY(110vh) rotate(220deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pop-sticker {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -70%) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -120%) scale(0.9);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.45);
+  }
+}
+
+@media (max-width: 640px) {
+  .cute-toolbar {
+    max-width: calc(100vw - 20px);
+    top: 10px;
+  }
+
+  .status-pill {
+    top: 94px;
+  }
 }

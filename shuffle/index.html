@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cute Shuffle Carousel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Short+Stack&family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="background-glow"></div>
+
+  <header class="topbar">
+    <button type="button" class="back-btn" id="backBtn">Back</button>
+    <p class="title">Cute Shuffle Carousel</p>
+    <span class="counter" id="counterText">1 / 1</span>
+  </header>
+
+  <section class="controls" aria-label="Carousel controls">
+    <button class="chip-btn" id="playBtn" type="button">Auto Play</button>
+    <button class="chip-btn" id="fitBtn" type="button">Fit: Contain</button>
+    <button class="chip-btn" id="sparkBtn" type="button">Sparkle</button>
+    <button class="chip-btn" id="randomBtn" type="button">Random</button>
+  </section>
+
+  <main class="stage">
+    <button class="nav-btn left" id="prevBtn" aria-label="Previous">‹</button>
+
+    <section class="carousel-shell" id="carouselShell">
+      <div class="carousel-track" id="carouselTrack"></div>
+    </section>
+
+    <button class="nav-btn right" id="nextBtn" aria-label="Next">›</button>
+  </main>
+
+  <section class="thumbs" id="thumbs" aria-label="Thumbnails"></section>
+
+  <p class="hint">Swipe left/right, tap for sticker, and enjoy the cute mode.</p>
+  <div class="mini-toast" id="miniToast" aria-live="polite"></div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/shuffle",
+      "destination": "/shuffle/index.html"
+    }
+  ]
+}

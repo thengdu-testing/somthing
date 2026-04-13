@@ -1,4 +1,6 @@
+(() => {
 let highestZ = 1;
+const MAX_PAPER_Z = 500;
 
 class Paper {
   holdingPaper = false;
@@ -54,8 +56,8 @@ class Paper {
       if(this.holdingPaper) return; 
       this.holdingPaper = true;
       
-      paper.style.zIndex = highestZ;
-      highestZ += 1;
+      paper.style.zIndex = Math.min(highestZ, MAX_PAPER_Z);
+      highestZ = Math.min(highestZ + 1, MAX_PAPER_Z);
       
       if(e.button === 0) {
         this.mouseTouchX = this.mouseX;
@@ -74,9 +76,22 @@ class Paper {
   }
 }
 
-const papers = Array.from(document.querySelectorAll('.paper'));
+const initializedPapers = new WeakSet();
 
-papers.forEach(paper => {
+function initPaperElement(paper) {
+  if (!paper || initializedPapers.has(paper)) {
+    return;
+  }
+
   const p = new Paper();
   p.init(paper);
+  initializedPapers.add(paper);
+}
+
+const papers = Array.from(document.querySelectorAll('.paper'));
+papers.forEach(initPaperElement);
+
+document.addEventListener('paper:added', (event) => {
+  initPaperElement(event.detail && event.detail.paper);
 });
+})();
