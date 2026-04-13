@@ -71,6 +71,7 @@ body {
   font-size: 12px;
   color: #29436f;
   box-shadow: 0 6px 12px rgba(38, 45, 74, 0.14);
+  pointer-events: none;
 }
 
 .status-dot {
@@ -226,11 +227,51 @@ p {
 
 @media (max-width: 640px) {
   .cute-toolbar {
-    max-width: calc(100vw - 20px);
+    width: calc(100vw - 20px);
+    max-width: 380px;
     top: 10px;
+    padding: 8px;
+    gap: 6px;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cute-btn {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 10px;
+    font-size: 11px;
   }
 
   .status-pill {
-    top: 94px;
+    top: 66px;
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .paper {
+    padding: 12px 34px;
+  }
+
+  .paper.image {
+    width: min(72vw, 260px);
+  }
+
+  p {
+    font-size: 40px;
+  }
+
+  .paper.image p {
+    font-size: clamp(16px, 4.2vw, 22px);
+  }
+
+  .cute-toast {
+    width: calc(100vw - 26px);
+    max-width: 360px;
+    text-align: center;
   }
 }
