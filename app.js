@@ -214,6 +214,10 @@ function openShufflePage() {
   window.location.assign('./shuffle/');
 }
 
+function openValentinePage() {
+  window.location.assign('/valentine');
+}
+
 if (toolbar) {
   toolbar.addEventListener('click', (evt) => {
     const button = evt.target.closest('[data-action]');
@@ -224,6 +228,9 @@ if (toolbar) {
     const action = button.getAttribute('data-action');
     if (action === 'shuffle') {
       openShufflePage();
+    }
+    if (action === 'valentine') {
+      openValentinePage();
     }
     if (action === 'message') {
       randomMessage();

@@ -3,6 +3,10 @@
     {
       "source": "/shuffle",
       "destination": "/shuffle/index.html"
+    },
+    {
+      "source": "/valentine",
+      "destination": "/valentine/index.html"
     }
   ]
 }

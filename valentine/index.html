@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be My Valentine?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Short+Stack&family=Nunito:wght@600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/valentine/style.css">
+</head>
+<body>
+  <main class="page">
+    <a class="back-link" href="../">Back home</a>
+
+    <section class="card" aria-live="polite">
+      <img
+        id="questionImage"
+        class="question-image"
+        src="../images/92e2a16d67e0777fe943b19f0e4eecce.jpg"
+        alt="Cute cat with flowers"
+      >
+
+      <h1>Will you be my valentine?</h1>
+      <p id="sureNote" class="note">Please say yes, pretty please.</p>
+
+      <div class="actions">
+        <button id="yesBtn" class="btn yes" type="button">Yes</button>
+        <button id="noBtn" class="btn no" type="button">No</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="successModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button id="closeModal" class="close-modal" type="button" aria-label="Close">×</button>
+      <img
+        id="successImage"
+        class="success-image"
+        src="../images/heart.webp"
+        alt="Valentine success"
+      >
+      <p class="success-text">Yayyy! You just made me the happiest person ever.</p>
+    </div>
+  </div>
+
+  <script src="/valentine/script.js"></script>
+</body>
+</html>
