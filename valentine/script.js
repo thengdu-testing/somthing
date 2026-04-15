@@ -23,6 +23,7 @@ let noScaleNow = 1;
 let lastNoPosition = null;
 const noDisappearCount = 30;
 let runawayStarted = false;
+let lastHoverJumpAt = 0;
 
 function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
@@ -133,6 +134,20 @@ function handleNo() {
   }
 }
 
+function handleNoHover() {
+  if (noHidden) {
+    return;
+  }
+
+  const now = Date.now();
+  if (now - lastHoverJumpAt < 120) {
+    return;
+  }
+
+  lastHoverJumpAt = now;
+  moveNoButtonRandomly();
+}
+
 function initNoButton() {
   if (!cardFrame) {
     return;
@@ -165,6 +180,7 @@ function closeSuccess() {
 }
 
 noBtn.addEventListener('click', handleNo);
+noBtn.addEventListener('mouseenter', handleNoHover);
 yesBtn.addEventListener('click', openSuccess);
 closeModal.addEventListener('click', closeSuccess);
 
