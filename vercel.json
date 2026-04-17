@@ -7,6 +7,10 @@
     {
       "source": "/valentine",
       "destination": "/valentine/index.html"
+    },
+    {
+      "source": "/confession",
+      "destination": "/confession/index.html"
     }
   ]
 }
